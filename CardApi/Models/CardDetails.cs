@@ -4,6 +4,5 @@
   string CardNumber,
   CardType CardType,
   CardStatus CardStatus,
-  bool IsPinSet
-   , string Describe = "");
+  bool IsPinSet);
 }

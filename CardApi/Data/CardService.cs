@@ -54,8 +54,7 @@ namespace CardApi.Data
                                 CardNumber: cardNumber,
                                 CardType: cardType,
                                 CardStatus: cardStatus,
-                                IsPinSet: cardIndex % 2 == 0,
-                                Describe: $"CartType: {cardType} Status: {cardStatus}"));
+                                IsPinSet: cardIndex % 2 == 0));
 
 
                         cardIndex++;

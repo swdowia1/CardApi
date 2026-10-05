@@ -32,8 +32,7 @@ namespace CardApi.Controllers
                     card.CardNumber,
                     CardType = card.CardType.ToString(),
                     CardStatus = card.CardStatus.ToString(),
-                    card.IsPinSet,
-                    card.Describe
+                    card.IsPinSet
                 }));
 
             return Ok(result);
