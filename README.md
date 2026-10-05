@@ -276,57 +276,9 @@ zwróci:
 Projekt posiada osobny projekt testowy wykorzystujący:
 
 * xUnit
-* Moq
 
-Testy sprawdzają przede wszystkim **reguły biznesowe oraz zachowanie kontrolera**.
+Testy sprawdzają przede wszystkim **reguły biznesowe**.
 
-## Przykładowy test kontrolera
-
-Sprawdzamy, czy brak `userId` powoduje:
-
-```text
-400 Bad Request
-```
-
-oraz czy w takiej sytuacji nie jest wywoływany serwis pobierający kartę.
-
-```csharp
-[Fact]
-public async Task GetAllowedActions_WhenUserIdIsNull_ReturnsBadRequest()
-{
-    var cardServiceMock = new Mock<ICardService>();
-    var cardActionServiceMock = new Mock<ICardActionService>();
-
-    var controller = new CardsController(
-        cardServiceMock.Object,
-        cardActionServiceMock.Object);
-
-    string? userId = null;
-
-    var result = await controller.GetAllowedActions(
-        userId,
-        "Card11",
-        CancellationToken.None);
-
-    var badRequestResult =
-        Assert.IsType<BadRequestObjectResult>(result);
-
-    Assert.Equal(
-        "UserId is required.",
-        badRequestResult.Value);
-
-    cardServiceMock.Verify(
-        x => x.GetCardDetails(
-            It.IsAny<string>(),
-            It.IsAny<string>(),
-            It.IsAny<CancellationToken>()),
-        Times.Never);
-}
-```
-
-W tym przypadku **Moq** pozwala zastąpić prawdziwe serwisy mockami i sprawdzić, czy zostały odpowiednio wywołane.
-
----
 
 ## Test pokrywający wszystkie statusy
 
