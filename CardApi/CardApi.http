@@ -1,6 +1,8 @@
 @CardApi_HostAddress = http://localhost:5241
-
-GET {{CardApi_HostAddress}}/weatherforecast/
+### fake
+GET {{CardApi_HostAddress}}/api/cards/User1/Card11/actions
 Accept: application/json
 
-###
+### szystkie card
+GET {{CardApi_HostAddress}}/api/cards 
+Accept: application/json
