@@ -31,19 +31,6 @@ W pliku `.http` można wykorzystać następujące przykłady.
 GET {{CardApi_HostAddress}}/api/cards/User1/Card11/actions
 Accept: application/json
 ```
-
-Endpoint:
-
-```text
-GET /api/cards/{userId}/{cardNumber}/actions
-```
-
-Przykład:
-
-```text
-GET /api/cards/User1/Card11/actions
-```
-
 API:
 
 1. wyszukuje użytkownika,
@@ -80,12 +67,6 @@ Dokładna lista akcji zależy od:
 ```http
 GET {{CardApi_HostAddress}}/api/cards
 Accept: application/json
-```
-
-Endpoint:
-
-```text
-GET /api/cards
 ```
 
 Zwraca wszystkie przykładowe karty wraz z informacjami o:
