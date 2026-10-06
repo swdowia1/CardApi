@@ -10,7 +10,6 @@ Projekt wykorzystuje **Strategy Pattern** do rozdzielenia reguł zależnych od s
 * .NET 8
 * ASP.NET Core Web API
 * xUnit
-* Moq
 
 ---
 
@@ -28,8 +27,6 @@ W pliku `.http` można wykorzystać następujące przykłady.
 
 ```http
 @CardApi_HostAddress = http://localhost:5241
-
-### fake
 GET {{CardApi_HostAddress}}/api/cards/User1/Card11/actions
 Accept: application/json
 ```
@@ -80,7 +77,6 @@ Dokładna lista akcji zależy od:
 ## Pobranie wszystkich przykładowych kart
 
 ```http
-### wszystkie
 GET {{CardApi_HostAddress}}/api/cards
 Accept: application/json
 ```

@@ -11,16 +11,13 @@ namespace CardApi.Controllers
         private readonly ICardService _cardService;
         private readonly ICardActionService _cardActionService;
 
-        public CardsController(
-            ICardService cardService,
-            ICardActionService cardActionService)
+        public CardsController(ICardService cardService,ICardActionService cardActionService)
         {
             _cardService = cardService;
             _cardActionService = cardActionService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllCards(
-    CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllCards(CancellationToken cancellationToken)
         {
             var cards = await _cardService.GetAllCards(
                 cancellationToken);
@@ -38,10 +35,7 @@ namespace CardApi.Controllers
             return Ok(result);
         }
         [HttpGet("{userId}/{cardNumber}/actions")]
-        public async Task<IActionResult> GetAllowedActions(
-     string? userId,
-     string? cardNumber,
-     CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllowedActions(string? userId,string? cardNumber,CancellationToken cancellationToken)
         {
             if (string.IsNullOrWhiteSpace(userId))
             {

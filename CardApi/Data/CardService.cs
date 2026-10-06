@@ -5,8 +5,7 @@ namespace CardApi.Data
     public class CardService : ICardService
     {
         private readonly Dictionary<string, Dictionary<string, CardDetails>> _userCards = CreateSampleUserCards();
-        public async Task<IReadOnlyDictionary<string, IReadOnlyCollection<CardDetails>>>
-    GetAllCards(CancellationToken cancellationToken)
+        public async Task<IReadOnlyDictionary<string, IReadOnlyCollection<CardDetails>>> GetAllCards(CancellationToken cancellationToken)
         {
             await Task.Delay(500, cancellationToken);
 
@@ -14,10 +13,7 @@ namespace CardApi.Data
                 x => x.Key,
                 x => (IReadOnlyCollection<CardDetails>)x.Value.Values.ToList());
         }
-        public async Task<CardDetails?> GetCardDetails(
-            string userId,
-            string cardNumber,
-            CancellationToken cancellationToken)
+        public async Task<CardDetails?> GetCardDetails(string userId,string cardNumber,CancellationToken cancellationToken)
         {
             // Symulacja wywołania zewnętrznego serwisu
             await Task.Delay(1000, cancellationToken);
@@ -31,11 +27,9 @@ namespace CardApi.Data
             return cardDetails;
         }
 
-        private static Dictionary<string, Dictionary<string, CardDetails>>
-            CreateSampleUserCards()
+        private static Dictionary<string, Dictionary<string, CardDetails>> CreateSampleUserCards()
         {
-            var userCards =
-                new Dictionary<string, Dictionary<string, CardDetails>>();
+            var userCards =new Dictionary<string, Dictionary<string, CardDetails>>();
 
             for (var i = 1; i <= 3; i++)
             {

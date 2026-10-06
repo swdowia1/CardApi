@@ -7,14 +7,12 @@ namespace CardApi.Services
     {
         private readonly ICardActionRuleEngine _ruleEngine;
 
-        public CardActionService(
-            ICardActionRuleEngine ruleEngine)
+        public CardActionService(ICardActionRuleEngine ruleEngine)
         {
             _ruleEngine = ruleEngine;
         }
 
-        public IReadOnlyCollection<string> GetAllowedActions(
-            CardDetails card)
+        public IReadOnlyCollection<string> GetAllowedActions(CardDetails card)
         {
             return _ruleEngine.GetAllowedActions(card);
         }
