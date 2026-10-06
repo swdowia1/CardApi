@@ -27,6 +27,7 @@ W pliku `.http` można wykorzystać następujące przykłady.
 
 ```http
 @CardApi_HostAddress = http://localhost:5241
+
 GET {{CardApi_HostAddress}}/api/cards/User1/Card11/actions
 Accept: application/json
 ```
